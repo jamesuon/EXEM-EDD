@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="io.cloudine.template.esm.domain.User" alias="user"/>
+		<typeAlias type="io.cloudine.template.esm.domain.Board" alias="board"/>
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="io/cloudine/template/esm/repository/user-mapper.xml"/>
+		<mapper resource="io/cloudine/template/esm/repository/board-mapper.xml"/>
+	</mappers>
+</configuration>

@@ -1,0 +1,234 @@
+Sencha Cmd 6.0.2.14 - Crash report
+================================================
+An error occurred while executing the following command: build development
+
+Diagnostic information:
+=======================
+                         app.archivePath : archive/${build.id}                               
+                      app.bootstrap.base : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app
+                       app.bootstrap.css : bootstrap.css                                     
+                  app.bootstrap.manifest : ${build.id}.json                                  
+               app.bootstrap.microloader : bootstrap.js                                      
+                app.builds.classic.theme : theme-triton                                      
+              app.builds.classic.toolkit : classic                                           
+                 app.builds.modern.theme : theme-triton                                      
+               app.builds.modern.toolkit : modern                                            
+                        app.cache.deltas : ${build.id}/deltas                                
+                        app.cache.enable : false                                             
+                   app.classic.js.0.path : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\ext/build/ext-all-rtl-debug.js
+                   app.classic.js.length : 1                                                 
+                           app.classpath : app,${toolkit.name}/src                           
+                         app.classpath.0 : app                                               
+                         app.classpath.1 : ${toolkit.name}/src                               
+                    app.classpath.length : 2                                                 
+                         app.cmd.version : 6.0.2.14                                          
+                          app.config.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\.sencha\app
+                app.cordova.cache.enable : false                                             
+                   app.cordova.config.id : com.domain.App                                    
+                 app.cordova.config.name : App                                               
+                 app.cordova.config.path : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/cordova
+               app.cordova.config.target :                                                   
+              app.cordova.config.verbose : false                                             
+                   app.cordova.js.0.path : cordova.js                                        
+               app.cordova.js.0.priority : 1000                                              
+                 app.cordova.js.0.remote : true                                              
+                   app.cordova.js.length : 1                                                 
+                 app.cordova.microloader : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\.sencha\app/Microloader.js
+      app.cordova.output.appCache.enable : false                                             
+                 app.cordova.output.base : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/cordova/www
+             app.cordova.output.manifest : ${build.id}.json                                  
+                 app.cordova.output.page : index.html                                        
+                    app.development.tags :                                                   
+             app.development.tags.length : 0                                                 
+                                 app.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app
+              app.fashion.inliner.enable : false                                             
+                           app.framework : ext                                               
+                   app.framework.version : 6.0.0.640                                         
+                                  app.id : e627b317-056b-48aa-974c-44faaebb0577              
+                       app.indexHtmlPath : /index.jsp                                        
+                        app.loader.cache : false                                             
+                   app.loader.cacheParam : _dc                                               
+                              app.locale : ko                                                
+                    app.modern.js.0.path : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\ext/build/ext-modern-all-debug.js
+                    app.modern.js.length : 1                                                 
+                                app.name : App                                               
+              app.output.appCache.enable : false                                             
+                         app.output.base : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/build/${build.environment}/App
+                           app.output.js : ${build.id}/app.js                                
+                     app.output.manifest : ${build.id}.json                                  
+           app.output.microloader.enable : true                                              
+                         app.output.page : index.html                                        
+               app.output.resources.path : ${build.id}/resources                             
+             app.output.resources.shared : resources                                         
+                           app.overrides : overrides,${toolkit.name}/overrides               
+                         app.overrides.0 : overrides                                         
+                         app.overrides.1 : ${toolkit.name}/overrides                         
+                    app.overrides.length : 2                                                 
+               app.phonegap.cache.enable : false                                             
+                  app.phonegap.config.id : com.domain.App                                    
+                app.phonegap.config.name : App                                               
+                app.phonegap.config.path : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/phonegap
+              app.phonegap.config.remote : false                                             
+             app.phonegap.config.verbose : false                                             
+                  app.phonegap.js.0.path : phonegap.js                                       
+              app.phonegap.js.0.priority : 1000                                              
+                app.phonegap.js.0.remote : true                                              
+                  app.phonegap.js.length : 1                                                 
+                app.phonegap.microloader : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\.sencha\app/Microloader.js
+     app.phonegap.output.appCache.enable : false                                             
+                app.phonegap.output.base : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/phonegap/www
+            app.phonegap.output.manifest : ${build.id}.json                                  
+                app.phonegap.output.page : index.html                                        
+             app.production.cache.enable : true                                              
+          app.production.compressor.type : yui                                               
+             app.production.loader.cache : ${build.timestamp}                                
+   app.production.output.appCache.enable : true                                              
+     app.production.output.appCache.path : cache.appcache                                    
+                      app.requires.names : ext,font-awesome                                  
+                   app.requires.packages : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\ext,C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\ext\packages\font-awesome
+                      app.resource.paths :                                                   
+                        app.sass.dynamic : true                                              
+                            app.sass.etc : sass/etc/all.scss,${toolkit.name}/sass/etc/all.scss
+                          app.sass.etc.0 : sass/etc/all.scss                                 
+                          app.sass.etc.1 : ${toolkit.name}/sass/etc/all.scss                 
+                     app.sass.etc.length : 2                                                 
+                      app.sass.namespace : App                                               
+                            app.sass.src : sass/src,${toolkit.name}/sass/src                 
+                          app.sass.src.0 : sass/src                                          
+                          app.sass.src.1 : ${toolkit.name}/sass/src                          
+                     app.sass.src.length : 2                                                 
+                            app.sass.var : sass/var/all.scss,sass/var,${toolkit.name}/sass/var
+                          app.sass.var.0 : sass/var/all.scss                                 
+                          app.sass.var.1 : sass/var                                          
+                          app.sass.var.2 : ${toolkit.name}/sass/var                          
+                     app.sass.var.length : 3                                                 
+                 app.slicer.cache.enable : false                                             
+        app.slicer.js.0.isWidgetManifest : true                                              
+                    app.slicer.js.0.path : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/sass/example/custom.js
+                    app.slicer.js.length : 1                                                 
+       app.slicer.output.appCache.enable : false                                             
+                             app.version : 1.0.0.0                                           
+                    buildenvironment.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app
+               buildenvironment.load.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app
+                          cmd.config.dir : C:\Users\James Choi\bin\Sencha\Cmd\6.0.2.14       
+                                 cmd.dir : C:\Users\James Choi\bin\Sencha\Cmd\6.0.2.14       
+                    cmd.framework.minver : 5.5.0                                             
+                   cmd.framework.version : 99.99                                             
+                            cmd.jvm.args : -Xms128m -Xmx1024m -Dapple.awt.UIElement=true     
+              cmd.merge.tool.args.araxis : -wait -merge -3 -a1 {base} {user} {generated} {out}
+              cmd.merge.tool.args.kdiff3 : {base} {user} {generated} -o {out}                
+             cmd.merge.tool.args.p4merge : {base} {user} {generated} {out}                   
+           cmd.merge.tool.args.smartsync : {user} {generated} {base}                         
+          cmd.merge.tool.args.sourcegear : --merge --result={out} {user} {base} {generated}  
+            cmd.merge.tool.args.tortoise : -base:{base} -theirs:{generated} -mine:{user} -merged:{out}
+                              cmd.minver : 3.0.0.0                                           
+                            cmd.platform : windows                                           
+                         cmd.server.port : 1841                                              
+                     cmd.unicode.escapes : C:\Users\James Choi\bin\Sencha\Cmd\6.0.2.14/unicode-escapes.json
+                             cmd.version : 6.0.2.14                                          
+                            cmd.web.port : 1841                                              
+                     config.skipDownload : true                                              
+                      config.skipInherit : false                                             
+                                 ext.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/ext
+                        ext.license.name : trial                                             
+                     framework.build.dir : ${package.output.base}                            
+                     framework.classpath : ${package.dir}/src                                
+                    framework.cmd.minver : 6.0.0.202                                         
+                   framework.cmd.version : 6.0.0.202                                         
+                 framework.compatVersion : 6.0.0                                             
+                    framework.config.dir : C:\Users\James Choi\bin\Sencha\Cmd\6.0.2.14\plugins\ext\current
+                       framework.creator : Sencha                                            
+           framework.detailedDescription : Sencha Ext JS JavaScript Framework                
+                           framework.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\ext
+                  framework.example.apps : admin-dashboard,executive-dashboard,kitchensink,classic/charts-kitchensink,classic/desktop,classic/ticket-app,classic/portal,classic/simple-tasks,classic/responsive-app,classic/aria,modern/addressbook,modern/energy,modern/stockapp,modern/states,modern/geocongress,modern/oreilly
+                framework.example.apps.0 : admin-dashboard                                   
+                framework.example.apps.1 : executive-dashboard                               
+               framework.example.apps.10 : modern/addressbook                                
+               framework.example.apps.11 : modern/energy                                     
+               framework.example.apps.12 : modern/stockapp                                   
+               framework.example.apps.13 : modern/states                                     
+               framework.example.apps.14 : modern/geocongress                                
+               framework.example.apps.15 : modern/oreilly                                    
+                framework.example.apps.2 : kitchensink                                       
+                framework.example.apps.3 : classic/charts-kitchensink                        
+                framework.example.apps.4 : classic/desktop                                   
+                framework.example.apps.5 : classic/ticket-app                                
+                framework.example.apps.6 : classic/portal                                    
+                framework.example.apps.7 : classic/simple-tasks                              
+                framework.example.apps.8 : classic/responsive-app                            
+                framework.example.apps.9 : classic/aria                                      
+           framework.example.apps.length : 16                                                
+                  framework.example.path : examples,templates                                
+                framework.example.path.0 : examples                                          
+                framework.example.path.1 : templates                                         
+           framework.example.path.length : 2                                                 
+                        framework.format : 1                                                 
+                          framework.isV5 : true                                              
+                          framework.isV6 : true                                              
+                          framework.name : ext                                               
+                        framework.output : ${package.dir}/build                              
+                     framework.overrides : ${package.dir}/overrides                          
+                  framework.packages.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\ext/packages/,C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\ext/${toolkit.name}
+                     framework.resources : resources                                         
+                   framework.resources.0 : resources                                         
+              framework.resources.length : 1                                                 
+                      framework.sass.etc : ${package.dir}/sass/etc/all.scss                  
+                  framework.sass.fashion : true                                              
+                framework.sass.namespace : Ext                                               
+                      framework.sass.src : ${package.dir}/sass/src                           
+                      framework.sass.var : ${package.dir}/sass/var                           
+        framework.signatures.0.algorithm : SHA1withRSA                                       
+          framework.signatures.0.created : 2015-06-30T20:59:16Z                              
+             framework.signatures.0.name : Sencha                                            
+            framework.signatures.0.nonce : GkhHr4A0Q68=                                      
+        framework.signatures.0.signature : tLWGjeIjMJ7Qv9G0nlxwYN/p6GXQ7Xvz1HBMinzKMj7uG7L74Yd6QVLesK1XANQlFoMn+N3/swjSuoY/YFl/rQ1ed2Ph0jMurjgC9xRgheIP7OgXK9hIQDNdfsgANHBXPo7B/m3VE7bJ57E2lkEHEOBf4Z+T/MPgf3aWor8ut8n0H0YNjM0JVnlqzXSISwXVveW5jABO2qhFMSZ3P32xPuSTQ6Rb8XZzvkdjG8lQdB4Oxa+G4S8sCyUwc8oW03OxzsswlyNX6J0Q7k5WepAC9Og9NlPGnzpmENOpe+ofOyxBhbnqyDxo1hsQL6Nlp+xl8h/6xVNpoIxqN88TePECm1qU9qdNasT2wvBY0Os2eihW6Uc9VGzxPl39kUiSidzylsPXdrOyhJHeQbtka99FnWI7S2TR6WD4hsWHo4gTvneL/3oZAi8IivIwE7kCYnSsAh5bfbRkDdPdO5Xyp4gGd3Gak/PSGuSODAhV9v9xgOjI0Sg/YOSEANo5ZmGkja5cmiN6nHzY73Th6HjCJUm3sVe3TVwPegn6dlFJlpfzYkG0QgmCXALg6Qdrbt08YavJBdMKGxGxoaiV0EvpSwt51m8lqYFBwI+t0gh5DoYwQYDS/nWcaghnAn+GKhY5aG0zNo5i6XnsuEgQTFYNpsxrmR43CkzivdbpC47loOfV0Rk=
+             framework.signatures.0.uuid : e93ebd09-85f5-46b6-bfc1-c7f06cf0b8a5              
+             framework.signatures.length : 1                                                 
+                       framework.subpkgs : classic/classic,modern/modern,packages/charts,packages/amf,packages/soap,packages/ux
+                     framework.subpkgs.0 : classic/classic                                   
+                     framework.subpkgs.1 : modern/modern                                     
+                     framework.subpkgs.2 : packages/charts                                   
+                     framework.subpkgs.3 : packages/amf                                      
+                     framework.subpkgs.4 : packages/soap                                     
+                     framework.subpkgs.5 : packages/ux                                       
+                framework.subpkgs.length : 6                                                 
+                       framework.summary : Ext JS                                            
+                          framework.type : framework                                         
+                       framework.version : 6.0.0.640                                         
+                       inspector.address : http://localhost:1839/                            
+                             locale.name : ko                                                
+                    package.sass.dynamic : true                                              
+                          repo.local.dir : C:\Users\James Choi\bin\Sencha\Cmd\repo           
+        system.java.net.useSystemProxies : true                                              
+                     workspace.build.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/build
+                   workspace.cmd.version : 6.0.2.14                                          
+                    workspace.config.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app\.sencha\workspace
+                           workspace.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app
+                  workspace.packages.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/packages/local,C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/packages
+              workspace.packages.extract : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/packages/remote
+                     workspace.theme.dir : C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/packages/local,C:\Flamingo2_source\template-spring-mybatis-extjs2\src\main\webapp\resources\app/packages/${args.themeName}
+
+Exception information:
+=======================
+java.lang.NullPointerException
+     at java.io.File.<init>(Unknown Source)
+     at com.sencha.util.FileUtil.readFile(FileUtil.java:157)
+     at com.sencha.tools.compiler.jsb.projects.JsbBuilder.processBuild(JsbBuilder.java:29)
+     at com.sencha.command.build.JsbCommand.execute(JsbCommand.java:15)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+     at java.lang.reflect.Method.invoke(Unknown Source)
+     at com.sencha.util.MethodInvoker$Arguments.invoke(MethodInvoker.java:175)
+     at com.sencha.cli.Command.dispatch(Command.java:43)
+     at com.sencha.cli.Commands.dispatch(Commands.java:64)
+     at com.sencha.command.Sencha.dispatch(Sencha.java:74)
+     at com.sencha.command.Sencha.main(Sencha.java:142)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+     at java.lang.reflect.Method.invoke(Unknown Source)
+     at com.exe4j.runtime.LauncherEngine.launch(Unknown Source)
+     at com.exe4j.runtime.WinLauncher.main(Unknown Source)
+     at com.install4j.runtime.launcher.WinLauncher.main(Unknown Source)
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.cloudine.template.esm.repository.BoardRepository">
+
+	<!-- ==================================================================================== -->
+	<!-- 1. Result and Parameter Maps -->
+	<!-- ==================================================================================== -->
+
+	<resultMap id="boardMap" type="io.cloudine.template.esm.domain.Board">
+		<result property="b_id" column="b_id" jdbcType="BIGINT"/>
+		<result property="b_name" column="b_name" jdbcType="VARCHAR"/>
+		<result property="c_date" column="c_date" jdbcType="DATE"/>
+		<result property="u_date" column="u_date" jdbcType="TIMESTAMP"/>
+		<result property="member_id" column="member_id" jdbcType="BIGINT"/>
+	</resultMap>
+
+	<!-- ==================================================================================== -->
+	<!-- 2. Sql Fragments -->
+	<!-- ==================================================================================== -->
+
+	<sql id="wherePK">WHERE B_ID = #{b_id}</sql>
+
+	<!-- ==================================================================================== -->
+	<!-- 3. Select Statement -->
+	<!-- ==================================================================================== -->
+
+	<select id="selectById" parameterType="Integer" resultMap="boardMap">
+		SELECT * FROM BOARD
+		<include refid="wherePK"/>
+	</select>
+
+	<select id="selectList" resultMap="boardMap">
+		SELECT * FROM BOARD
+	</select>
+
+	<!-- ==================================================================================== -->
+	<!-- 3. Exist Statement -->
+	<!-- ==================================================================================== -->
+
+	<!--<select id="exist" parameterType="Integer" resultType="Integer">-->
+		<!--SELECT COUNT(*) FROM BOARD-->
+		<!--<include refid="wherePK"/>-->
+	<!--</select>-->
+
+	<!-- ==================================================================================== -->
+	<!-- 4. Insert Statements -->
+	<!-- ==================================================================================== -->
+
+	<!--<insert id="insert" parameterType="board" useGeneratedKeys="true" keyProperty="id" keyColumn="ID">-->
+		<!--INSERT INTO BOARD ( B_ID, B_NAME, C_DATE, MEMBER_ID )-->
+		<!--VALUES ( #{id}, #{username}, #{password}, #{name} )-->
+
+		<!--<selectKey resultType="integer" keyProperty="id" order="AFTER">-->
+			<!--SELECT LAST_INSERT_ID()-->
+		<!--</selectKey>-->
+	<!--</insert>-->
+
+	<!-- ==================================================================================== -->
+	<!-- 5. Update Statements -->
+	<!-- ==================================================================================== -->
+
+	<update id="update" parameterType="board">
+		UPDATE BOARD
+		SET
+		B_NAME = #{b_name},
+		C_DATE = now(),
+		U_DATE = now(),
+		MEMBER_ID = #{member_id}
+		<include refid="wherePK"/>
+	</update>
+
+	<!-- ==================================================================================== -->
+	<!-- 6. Delete Statements -->
+	<!-- ==================================================================================== -->
+
+	<!--<delete id="delete" parameterType="string">-->
+		<!--DELETE FROM USER-->
+		<!--<include refid="wherePK"/>-->
+	<!--</delete>-->
+</mapper>
