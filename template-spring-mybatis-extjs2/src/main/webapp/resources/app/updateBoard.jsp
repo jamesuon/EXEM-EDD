@@ -61,24 +61,24 @@
             location.href = "http://localhost:8080/example/board"
         }
 
-        /*function update(id) {
+        function update(id) {
             var updateForm = $("form[name=updateForm]").serialize();
 
             $.ajax({
-                type : 'post',
+                type : 'put',
                 url : 'edit/'+id,
                 data : updateForm,
                 headers: {
                     "Content-Type": "application/json"},
-                /!*dataType : 'json',*!/
-                error: function(xhr, status, error){
+                /*dataType : 'json',*/
+                error: function(status, error){
                     alert(error);
                 },
                 success : function(json){
                     alert(json)
                 }
             });
-        }*/
+        }
 
     </script>
 
@@ -94,13 +94,15 @@ Hello! Welcome to Board.
 
 <%--<input type="button" value="목록" onclick="onClickHandle()" >--%>
 
-<form name="updateForm" method="post" action="edit">
-    <%--<input name="_method" type="hidden" value="PUT">--%>
-    <input type="number" value="${board.b_id}" name="b_id" />
+<form name="updateForm" method="post" action="edit/${board.b_id}"">
+<%--<form name="updateForm">--%>
+    <input name="_method" type="hidden" value="PUT">
+    <input type="text" value="${board.b_id}" name="b_id" />
     <input type="text" value="${board.b_name}" name="b_name" />
-    <input type="text" value="<fmt:formatDate value="${board.c_date}" pattern="YYYY-MM-DD HH:mm:ss" />" name="c_date" />
-    <input type="number" value="${board.member_id}" name="member_id" />
-    <input type ="submit" value="완료" />
+    <%--<input type="text" value="<fmt:formatDate value="${board_date}" pattern="YYYY-MM-DD HH:mm:ss" />" name="c_date" />--%>
+    <input type="text" value="${board.member_id}" name="member_id" />
+    <input type="submit" value="update" />
+    <%--<input type ="button" value="완료" onclick="update(${board.b_id})" />--%>
 </form>
 </body>
 </html>

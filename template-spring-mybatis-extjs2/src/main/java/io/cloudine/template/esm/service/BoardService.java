@@ -40,5 +40,6 @@ public interface BoardService {
 
     void insert(Board board);
 
+    void delete(int id);
 }
 

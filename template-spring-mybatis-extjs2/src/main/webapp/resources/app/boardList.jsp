@@ -59,6 +59,23 @@
         function insert() {
             location.href = "http://localhost:8080/example/board/insert";
         }
+
+        function deleteBoard(id) {
+
+            $.ajax({
+                type : 'delete',
+                url : 'delete/'+id,
+                headers: {
+                    "Content-Type": "application/json"},
+                /*dataType : 'json',*/
+                error: function(status, error){
+                    alert(error);
+                },
+                success : function(json){
+                    alert(json)
+                }
+            });
+        }
     </script>
 
 </head>
@@ -72,6 +89,10 @@ Hello! Welcome to Board.
     <h1><c:out value="${board.u_date}" /></h1><p/>
     <h1><c:out value="${board.member_id}" /></h1><p/>
     <input type="button" value="${board.b_name} 게시물 보기" onclick="onClickHandle(${board.b_id})" >
+    <form method="post" action="delete/${board.b_id}">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="delete" />
+    </form>
 </c:forEach>
 <button onclick="insert()" >insert</button>
 

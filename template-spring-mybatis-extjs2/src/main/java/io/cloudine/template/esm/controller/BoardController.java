@@ -60,6 +60,19 @@ public class BoardController {
         return "board"; // 이동할 URL  --> board.jsp
     }
 
+    @RequestMapping(value = "/delete/{b_id}", method=RequestMethod.DELETE)
+    public String deleteBoard(@PathVariable Integer b_id) {
+
+        //http://localhost:8080/example/board/1
+
+
+        System.out.printf("deleteBoard Controller");
+
+        boardService.delete(b_id);
+
+        return "redirect:/example/board"; // 이동할 URL  --> board.jsp
+    }
+
 
     @RequestMapping(value="/board/update/{b_id}", method=RequestMethod.GET)
     public String updateBoardForm(@PathVariable Integer b_id, Model model) {
@@ -76,9 +89,10 @@ public class BoardController {
     }
 
 
-    @RequestMapping(value="/board/update/edit", method=RequestMethod.POST)
+    @RequestMapping(value="/board/update/edit/{b_id}", method=RequestMethod.PUT)
     //public String updateBoard(@RequestParam("b_id") int b_id, @RequestParam("b_name") String b_name, @RequestParam("c_date") Date c_date, @RequestParam("u_date") Date u_date, @RequestParam("member_id") String member_id) {
-    public String updateBoard(@ModelAttribute Board board) {
+    //public String updateBoard(@ModelAttribute Board board) {
+    public String updateBoard(@PathVariable int b_id, @ModelAttribute Board board) {
         //http://localhost:8080/example/board
 
         System.out.println(board.getB_id()+"," + board.getB_name());

@@ -53,4 +53,9 @@ public class BoardServiceImpl implements BoardService {
     public void insert(Board board) {
         int result = boardRepository.insert(board);
     }
+
+    @Override
+    public void delete(int id) {
+        int result = boardRepository.delete(id);
+    }
 }

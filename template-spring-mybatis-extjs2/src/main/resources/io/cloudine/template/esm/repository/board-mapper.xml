@@ -73,8 +73,8 @@
 	<!-- 6. Delete Statements -->
 	<!-- ==================================================================================== -->
 
-	<!--<delete id="delete" parameterType="string">-->
-		<!--DELETE FROM USER-->
-		<!--<include refid="wherePK"/>-->
-	<!--</delete>-->
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM board
+		<include refid="wherePK"/>
+	</delete>
 </mapper>
