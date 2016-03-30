@@ -24,6 +24,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -80,16 +82,24 @@ public class Board implements Serializable {
         return c_date;
     }
 
-    public void setC_date(Date c_date) {
-        this.c_date = c_date;
+    public void setC_date(String c_date) throws ParseException {
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
+        Date fdate = df.parse(c_date);
+
+        this.c_date = fdate;
     }
 
     public Date getU_date() {
         return u_date;
     }
 
-    public void setU_date(Date u_date) {
-        this.u_date = u_date;
+    public void setU_date(String u_date) throws ParseException {
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
+        Date fdate = df.parse(u_date);
+
+        this.u_date = fdate;
     }
 
     public int getMember_id() {
