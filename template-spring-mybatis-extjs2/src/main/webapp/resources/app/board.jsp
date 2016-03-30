@@ -58,7 +58,7 @@
         }
 
         function onClickUpdateHandle(id) {
-            location.href = "http://localhost:8080/example/board/"+id +"/uform"
+            location.href = "http://localhost:8080/example/board/update/"+id
         }
     </script>
 

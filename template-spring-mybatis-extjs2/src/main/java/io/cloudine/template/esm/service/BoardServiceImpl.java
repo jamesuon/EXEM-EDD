@@ -48,4 +48,9 @@ public class BoardServiceImpl implements BoardService {
         int result = boardRepository.update(board);
 
     }
+
+    @Override
+    public void insert(Board board) {
+        int result = boardRepository.insert(board);
+    }
 }

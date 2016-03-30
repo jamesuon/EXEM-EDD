@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE HTML>
 <html manifest="">
@@ -52,10 +54,31 @@
     <!-- The line below must be kept intact for Sencha Cmd to build your application -->
     <script id="microloader" data-app="e627b317-056b-48aa-974c-44faaebb0577" type="text/javascript" src="bootstrap.js"></script>
 
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script>
         function onClickHandle(){
             location.href = "http://localhost:8080/example/board"
         }
+
+        /*function update(id) {
+            var updateForm = $("form[name=updateForm]").serialize();
+
+            $.ajax({
+                type : 'post',
+                url : 'edit/'+id,
+                data : updateForm,
+                headers: {
+                    "Content-Type": "application/json"},
+                /!*dataType : 'json',*!/
+                error: function(xhr, status, error){
+                    alert(error);
+                },
+                success : function(json){
+                    alert(json)
+                }
+            });
+        }*/
 
     </script>
 
@@ -69,15 +92,15 @@ Hello! Welcome to Board.
     <h1><c:out value="${board.u_date}" /></h1><p/>
     <h1><c:out value="${board.member_id}" /></h1><p/>
 
-<input type="button" value="목록" onclick="onClickHandle()" >
+<%--<input type="button" value="목록" onclick="onClickHandle()" >--%>
 
-<form method ="POST" action = "update">
-    <input type = text value="${board.b_id}" name="b_id">
-    <input type = text value="${board.b_name}" name="b_name">
-    <input type = text value="${board.c_date}" name="c_date">
-    <input type = text value="${board.u_date}" name="u_date">
-    <input type = text value="${board.member_id}" name="member_id">
-    <input type ="submit" value="완료">
+<form name="updateForm" method="post" action="edit">
+    <%--<input name="_method" type="hidden" value="PUT">--%>
+    <input type="number" value="${board.b_id}" name="b_id" />
+    <input type="text" value="${board.b_name}" name="b_name" />
+    <input type="text" value="<fmt:formatDate value="${board.c_date}" pattern="YYYY-MM-DD HH:mm:ss" />" name="c_date" />
+    <input type="number" value="${board.member_id}" name="member_id" />
+    <input type ="submit" value="완료" />
 </form>
 </body>
 </html>

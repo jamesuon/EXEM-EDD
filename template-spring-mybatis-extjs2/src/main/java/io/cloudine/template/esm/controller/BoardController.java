@@ -22,12 +22,10 @@ import io.cloudine.template.esm.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,18 +40,10 @@ public class BoardController {
     public String getBoard(Model model) {
         //http://localhost:8080/example/board
 
-
-        System.out.printf("check`````````````````2");
-
-        //Board board = boardService.get(1);
-
-        System.out.printf("check`````````````````3");
-        //model.addAttribute("board", board);
-
         ArrayList<Board> boardList = boardService.getBoardList();
         model.addAttribute("boardList", boardList);
 
-        System.out.printf("check`````````````````4");
+        System.out.printf("boardListController");
         return "boardList"; // 이동할 URL  --> boardList.jsp
     }
 
@@ -63,57 +53,35 @@ public class BoardController {
         //http://localhost:8080/example/board/1
 
 
-        System.out.printf("check`````````````````2");
+        System.out.printf("getBoard Controller");
 
         Board board = boardService.get(b_id);
-
-        System.out.printf("check`````````````````3");
         model.addAttribute("board", board);
-
-        System.out.printf("check`````````````````4");
         return "board"; // 이동할 URL  --> board.jsp
     }
 
 
-    @RequestMapping("/board/{b_id}/uform")
+    @RequestMapping(value="/board/update/{b_id}", method=RequestMethod.GET)
     public String updateBoardForm(@PathVariable Integer b_id, Model model) {
 
-        //http://localhost:8080/example/board/1
+        //http://localhost:8080/example/board/1/uform
 
 
-        System.out.printf("check`````````````````2");
+        System.out.printf("updateform Controller");
 
         Board board = boardService.get(b_id);
 
-        System.out.printf("check`````````````````3");
         model.addAttribute("board", board);
-
-        System.out.printf("check`````````````````4");
         return "updateBoard"; // 이동할 URL  --> updateBoard.jsp
     }
 
 
-    @RequestMapping("/board/{b_id}/update")
-    //public String updateBoard(@RequestParam("b_id") int b_id, @RequestParam("b_name") String b_name, @RequestParam("c_date") String c_date, @RequestParam("u_date") String u_date, @RequestParam("member_id") int member_id, Model model) {
+    @RequestMapping(value="/board/update/edit", method=RequestMethod.POST)
+    //public String updateBoard(@RequestParam("b_id") int b_id, @RequestParam("b_name") String b_name, @RequestParam("c_date") Date c_date, @RequestParam("u_date") Date u_date, @RequestParam("member_id") String member_id) {
     public String updateBoard(@ModelAttribute Board board) {
-
-
         //http://localhost:8080/example/board
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
-//        Board board = boardService.get(b_id);
-//        System.out.println("111111111");
-//        board.setB_name(b_name);
-//        System.out.println("22222222222"+c_date);
-//        board.setC_date(new Date());
-//        System.out.println("3333333333333333");
-//        board.setU_date(new Date());
-//        System.out.println("444444444444444");
-//        board.setMember_id(member_id);
-//        System.out.println("5555555555555555");
 
         System.out.println(board.getB_id()+"," + board.getB_name());
-
 
         System.out.printf("board controller update board");
 
@@ -126,9 +94,30 @@ public class BoardController {
 
         System.out.printf("check`````````````````4");
 
-//        ArrayList<Board> boardList = boardService.getBoardList();
-//        model.addAttribute("boardList", boardList);
         return "redirect:/example/board"; // 이동할 URL  --> boardList.jsp
+    }
+
+    @RequestMapping(value="/board/insert", method=RequestMethod.GET)
+    public String insertBoardForm() {
+
+        //http://localhost:8080/example/board/1/uform
+
+
+        System.out.printf("insertform Controller");
+
+        return "insertBoard"; // 이동할 URL  --> updateBoard.jsp
+    }
+
+    @RequestMapping(value="/board/insert", method=RequestMethod.POST)
+    public String insertBoard(@ModelAttribute("board") Board board) {
+    //public String insertBoard(@RequestParam("b_name") String b_name, @RequestParam("c_date") Date c_date, @RequestParam("member_id") int member_id) {
+        //http://localhost:8080/example/board/1/uform
+
+        System.out.printf("insertform Controller");
+
+        boardService.insert(board);
+
+        return "redirect:/example/board"; // 이동할 URL  --> updateBoard.jsp
     }
 
 }

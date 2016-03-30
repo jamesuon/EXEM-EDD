@@ -38,5 +38,7 @@ public interface BoardService {
 
     void updateBoard(Board board);
 
+    void insert(Board board);
+
 }
 

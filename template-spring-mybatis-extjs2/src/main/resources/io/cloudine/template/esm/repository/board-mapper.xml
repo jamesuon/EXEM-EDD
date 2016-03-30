@@ -47,14 +47,14 @@
 	<!-- 4. Insert Statements -->
 	<!-- ==================================================================================== -->
 
-	<!--<insert id="insert" parameterType="board" useGeneratedKeys="true" keyProperty="id" keyColumn="ID">-->
-		<!--INSERT INTO BOARD ( B_ID, B_NAME, C_DATE, MEMBER_ID )-->
-		<!--VALUES ( #{id}, #{username}, #{password}, #{name} )-->
+	<insert id="insert" parameterType="board" useGeneratedKeys="true" keyProperty="b_id" keyColumn="ID">
+		INSERT INTO BOARD ( B_ID, B_NAME, C_DATE, MEMBER_ID )
+		VALUES ( #{b_id}, #{b_name}, NOW(), #{member_id} )
 
-		<!--<selectKey resultType="integer" keyProperty="id" order="AFTER">-->
-			<!--SELECT LAST_INSERT_ID()-->
-		<!--</selectKey>-->
-	<!--</insert>-->
+		<selectKey resultType="integer" keyProperty="b_id" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
 
 	<!-- ==================================================================================== -->
 	<!-- 5. Update Statements -->
@@ -64,7 +64,6 @@
 		UPDATE BOARD
 		SET
 		B_NAME = #{b_name},
-		C_DATE = now(),
 		U_DATE = now(),
 		MEMBER_ID = #{member_id}
 		<include refid="wherePK"/>

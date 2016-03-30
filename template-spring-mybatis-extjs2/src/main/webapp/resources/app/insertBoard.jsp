@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE HTML>
 <html manifest="">
@@ -53,29 +54,21 @@
     <script id="microloader" data-app="e627b317-056b-48aa-974c-44faaebb0577" type="text/javascript" src="bootstrap.js"></script>
 
     <script>
-        function onClickHandle(id){
-            location.href = "http://localhost:8080/example/board/" + id;
+        function onClickHandle(){
+            location.href = "http://localhost:8080/example/board"
         }
-        function insert() {
-            location.href = "http://localhost:8080/example/board/insert";
-        }
+
     </script>
 
 </head>
 <body>
 Hello! Welcome to Board.
-<p/>
-<c:forEach var="board" items="${boardList}">
-    <h1><c:out value="${board.b_id}" /></h1><p/>
-    <h1><c:out value="${board.b_name}" /></h1><p/>
-    <h1><c:out value="${board.c_date}" /></h1><p/>
-    <h1><c:out value="${board.u_date}" /></h1><p/>
-    <h1><c:out value="${board.member_id}" /></h1><p/>
-    <input type="button" value="${board.b_name} 게시물 보기" onclick="onClickHandle(${board.b_id})" >
-</c:forEach>
-<button onclick="insert()" >insert</button>
 
-
+<form method="POST" action="insert">
+    <input type="text" name="b_name" />
+    <input type="text" name="member_id" />
+    <input type="submit" value="insert" />
+</form>
 
 </body>
 </html>
