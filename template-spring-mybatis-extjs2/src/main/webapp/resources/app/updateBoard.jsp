@@ -63,11 +63,15 @@
         }
 
         function update(id) {
-            var update = document.updateForm;
+            var update = document.getElementById("updateForm");
+
+            var i;
             var obj = new Object();
-            obj.b_id = update.b_id.value;
-            obj.b_name = update.b_name.value;
-            obj.member_id = update.member_id.value;
+
+            for (i = 0; i < update.length; i++) {
+                var fname = update.elements[i].name;
+                obj[fname] = update.elements[i].value;
+            }
 
             var json_data = JSON.stringify(obj);
 
@@ -79,7 +83,6 @@
                     "Content-Type": "application/json"
                 },
                 error: function(status, error){
-
                     alert(error);
                 },
                 success : function(id){
