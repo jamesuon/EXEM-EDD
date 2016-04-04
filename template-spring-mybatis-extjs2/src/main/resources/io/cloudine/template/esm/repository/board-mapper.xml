@@ -26,9 +26,9 @@
 	<!-- ==================================================================================== -->
 
 	<select id="selectById" parameterType="Integer" resultMap="boardMap">
-		SELECT * FROM BOARD
-		<include refid="wherePK"/>
-	</select>
+	SELECT * FROM BOARD
+	<include refid="wherePK"/>
+</select>
 
 	<select id="selectList" resultMap="boardMap">
 		SELECT * FROM BOARD

@@ -49,8 +49,7 @@
             //};
         };
     </script>
-    
-    
+
     <!-- The line below must be kept intact for Sencha Cmd to build your application -->
     <script id="microloader" data-app="e627b317-056b-48aa-974c-44faaebb0577" type="text/javascript" src="bootstrap.js"></script>
 
@@ -92,17 +91,13 @@ Hello! Welcome to Board.
     <h1><c:out value="${board.u_date}" /></h1><p/>
     <h1><c:out value="${board.member_id}" /></h1><p/>
 
-<%--<input type="button" value="목록" onclick="onClickHandle()" >--%>
-
-<form name="updateForm" method="post" action="edit/${board.b_id}"">
-<%--<form name="updateForm">--%>
-    <input name="_method" type="hidden" value="PUT">
-    <input type="text" value="${board.b_id}" name="b_id" />
-    <input type="text" value="${board.b_name}" name="b_name" />
-    <%--<input type="text" value="<fmt:formatDate value="${board_date}" pattern="YYYY-MM-DD HH:mm:ss" />" name="c_date" />--%>
-    <input type="text" value="${board.member_id}" name="member_id" />
+<form name="updateForm" method="post" action="${board.b_id}">
+    <input name="_method" type="hidden" value="PUT"><p/>
+    <input type="text" value="${board.b_id}" name="b_id" /><p/>
+    <input type="text" value="${board.b_name}" name="b_name" /><p/>
+    <h1><fmt:formatDate value="${board.c_date}" pattern="YYYY-MM-DD HH:mm:ss" /></h1><p/>
+    <input type="text" value="${board.member_id}" name="member_id" /><p/>
     <input type="submit" value="update" />
-    <%--<input type ="button" value="완료" onclick="update(${board.b_id})" />--%>
 </form>
 </body>
 </html>

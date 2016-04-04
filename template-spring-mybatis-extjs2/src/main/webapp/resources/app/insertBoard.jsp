@@ -68,6 +68,7 @@ Hello! Welcome to Board.
     <input type="text" name="b_name" />
     <input type="text" name="member_id" />
     <input type="submit" value="insert" />
+    <input type="button" onclick="onClickHandle()" value="취소" />
 </form>
 
 </body>
