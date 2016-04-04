@@ -83,7 +83,7 @@
                     alert(error);
                 },
                 success : function(id){
-                    location.href = "http://localhost:8080/example/board"+id;
+                    location.href = "http://localhost:8080/example/board/"+id;
                 }
             });
         }
