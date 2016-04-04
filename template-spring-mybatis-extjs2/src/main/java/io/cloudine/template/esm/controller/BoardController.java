@@ -60,12 +60,15 @@ public class BoardController {
     }
 
     @RequestMapping(value="/{b_id}", method=RequestMethod.DELETE)
-    public String deleteBoard(@PathVariable Integer b_id) {
+    @ResponseBody
+    public boolean deleteBoard(@PathVariable Integer b_id) {
         //http://localhost:8080/example/board/1
 
         System.out.printf("deleteBoard Controller");
         boardService.delete(b_id);
-        return "redirect:/example/board"; // 이동할 URL  --> board.jsp
+
+        return true;
+        //return "redirect:/example/board"; // 이동할 URL  --> board.jsp
     }
 
 
@@ -83,14 +86,17 @@ public class BoardController {
 
 
     @RequestMapping(value="/update/{b_id}", method=RequestMethod.PUT)
-    public String updateBoard(@PathVariable int b_id, @ModelAttribute Board board) {
+    @ResponseBody
+    public int updateBoard(@PathVariable int b_id, @RequestBody Board board) {
         //http://localhost:8080/example/board/update/1
 
         System.out.printf("board controller update board");
 
         boardService.updateBoard(board);
 
-        return "redirect:/example/board"; // 이동할 URL  --> boardList.jsp
+        return b_id;
+
+        //return "redirect:/example/board/"+b_id; // 이동할 URL  --> boardList.jsp
     }
 
     @RequestMapping(value="/insert", method=RequestMethod.GET)

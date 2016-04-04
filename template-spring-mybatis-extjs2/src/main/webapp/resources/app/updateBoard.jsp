@@ -53,28 +53,37 @@
     <!-- The line below must be kept intact for Sencha Cmd to build your application -->
     <script id="microloader" data-app="e627b317-056b-48aa-974c-44faaebb0577" type="text/javascript" src="bootstrap.js"></script>
 
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://raw.github.com/douglascrockford/JSON-js/master/json2.js"></script>
+
     <script>
         function onClickHandle(){
             location.href = "http://localhost:8080/example/board"
         }
 
         function update(id) {
-            var updateForm = $("form[name=updateForm]").serialize();
+            var update = document.updateForm;
+            var obj = new Object();
+            obj.b_id = update.b_id.value;
+            obj.b_name = update.b_name.value;
+            obj.member_id = update.member_id.value;
+
+            var json_data = JSON.stringify(obj);
 
             $.ajax({
                 type : 'put',
-                url : 'edit/'+id,
-                data : updateForm,
+                url : 'http://localhost:8080/example/board/update/'+id,
+                data : json_data,
                 headers: {
-                    "Content-Type": "application/json"},
-                /*dataType : 'json',*/
+                    "Content-Type": "application/json"
+                },
                 error: function(status, error){
+
                     alert(error);
                 },
-                success : function(json){
-                    alert(json)
+                success : function(id){
+                    location.href = "http://localhost:8080/example/board"+id;
                 }
             });
         }
@@ -91,13 +100,15 @@ Hello! Welcome to Board.
     <h1><c:out value="${board.u_date}" /></h1><p/>
     <h1><c:out value="${board.member_id}" /></h1><p/>
 
-<form name="updateForm" method="post" action="${board.b_id}">
-    <input name="_method" type="hidden" value="PUT"><p/>
+<form name="updateForm" id="updateForm">
+    <%--<input name="_method" type="hidden" value="PUT"><p/>--%>
     <input type="text" value="${board.b_id}" name="b_id" /><p/>
     <input type="text" value="${board.b_name}" name="b_name" /><p/>
+    <input type="hidden" value="<fmt:formatDate value="${board.c_date}" pattern="YYYY-MM-DD HH:mm:ss" /><" name="c_date" />
+    <input type="hidden" value="<fmt:formatDate value="${board.u_date}" pattern="YYYY-MM-DD HH:mm:ss" /><" name="u_date" />
     <h1><fmt:formatDate value="${board.c_date}" pattern="YYYY-MM-DD HH:mm:ss" /></h1><p/>
     <input type="text" value="${board.member_id}" name="member_id" /><p/>
-    <input type="submit" value="update" />
+    <input type="button" value="update" onclick="update(${board.b_id})" />
 </form>
 </body>
 </html>

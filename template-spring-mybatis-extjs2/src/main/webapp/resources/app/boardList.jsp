@@ -51,6 +51,8 @@
     <!-- The line below must be kept intact for Sencha Cmd to build your application -->
     <script id="microloader" data-app="e627b317-056b-48aa-974c-44faaebb0577" type="text/javascript" src="bootstrap.js"></script>
 
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script>
         function onClickHandle(id){
             location.href = "http://localhost:8080/example/board/" + id;
@@ -59,22 +61,17 @@
             location.href = "http://localhost:8080/example/board/insert";
         }
 
-        /*function deleteBoard(id) {
-
+        function deleteBoard(id) {
             $.ajax({
                 type : 'delete',
-                url : 'delete/'+id,
+                url : 'board/'+id,
                 headers: {
                     "Content-Type": "application/json"},
-                /!*dataType : 'json',*!/
-                error: function(status, error){
-                    alert(error);
-                },
-                success : function(json){
-                    alert(json)
+                success : function(){
+                    location.href = "http://localhost:8080/example/board";
                 }
             });
-        }*/
+        }
     </script>
 
 </head>
@@ -88,10 +85,11 @@ Hello! Welcome to Board.
     <h1><c:out value="${board.u_date}" /></h1><p/>
     <h1><c:out value="${board.member_id}" /></h1><p/>
     <input type="button" value="${board.b_name} 게시물 보기" onclick="onClickHandle(${board.b_id})" >
-    <form method="post" action="board/${board.b_id}">
+    <input type="button" value="delete" onclick="deleteBoard(${board.b_id})" /><p/>
+    <%--<form>
         <input type="hidden" name="_method" value="delete" />
-        <input type="submit" value="delete" />
-    </form>
+        <input type="button" value="delete" />
+    </form>--%>
 </c:forEach>
 <button onclick="insert()" >insert</button>
 
