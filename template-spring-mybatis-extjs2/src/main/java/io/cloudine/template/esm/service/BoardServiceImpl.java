@@ -19,21 +19,14 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public Board get(int id) {
 
-        System.out.printf("cccccc 1 = " + id);
-        Board b=boardRepository.selectById(id);
-        System.out.println(b.getB_name());
-        return b;
-
+        return boardRepository.selectById(id);
 
     }
 
     @Override
     public ArrayList<Board> getBoardList() {
 
-        System.out.println("Service : getBoardList : before");
-        ArrayList<Board> boardList = boardRepository.selectList();
-        System.out.println("Service : getBoardList : after");
-        return boardList;
+        return boardRepository.selectList();
 
     }
 
@@ -43,19 +36,23 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void updateBoard(Board board) {
+    public Board updateBoard(int id, Board board) {
 
         int result = boardRepository.update(board);
 
+        return boardRepository.selectById(id);
+
     }
 
     @Override
-    public void insert(Board board) {
+    public Board insert(Board board) {
         int result = boardRepository.insert(board);
+        return boardRepository.selectById(result);
     }
 
     @Override
-    public void delete(int id) {
+    public ArrayList<Board> delete(int id) {
         int result = boardRepository.delete(id);
+        return boardRepository.selectList();
     }
 }

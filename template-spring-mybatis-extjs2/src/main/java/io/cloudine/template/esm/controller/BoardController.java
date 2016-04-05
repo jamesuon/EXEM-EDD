@@ -20,6 +20,7 @@ package io.cloudine.template.esm.controller;
 import io.cloudine.template.esm.domain.Board;
 import io.cloudine.template.esm.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(value="/board")
 public class BoardController {
 
@@ -38,85 +39,47 @@ public class BoardController {
     private BoardService boardService;
 
     @RequestMapping(method=RequestMethod.GET)
-    public String getBoard(Model model) {
+    public ResponseEntity<ArrayList<Board>> getBoard() {
+        //http://localhost:8080/example/board
+        System.out.println("boardList controller");
+        return ResponseEntity.ok(boardService.getBoardList());
+    }
+
+    @RequestMapping(method=RequestMethod.POST)
+    public ResponseEntity<Board> insertBoard(@RequestBody Board board) {
         //http://localhost:8080/example/board
 
-        ArrayList<Board> boardList = boardService.getBoardList();
-        model.addAttribute("boardList", boardList);
+        System.out.printf("insert Controller");
 
-        System.out.printf("boardListController");
-        return "boardList"; // 이동할 URL  --> boardList.jsp
+        return ResponseEntity.ok(boardService.insert(board));
     }
 
     @RequestMapping(value="/{b_id}", method=RequestMethod.GET)
-    public String getBoard(@PathVariable Integer b_id, Model model) {
+    public ResponseEntity<Board> getBoard(@PathVariable Integer b_id) {
         //http://localhost:8080/example/board/1
 
         System.out.printf("getBoard Controller");
 
-        Board board = boardService.get(b_id);
-        model.addAttribute("board", board);
-        return "board"; // 이동할 URL  --> board.jsp
+        return ResponseEntity.ok(boardService.get(b_id));
     }
 
     @RequestMapping(value="/{b_id}", method=RequestMethod.DELETE)
-    @ResponseBody
-    public boolean deleteBoard(@PathVariable Integer b_id) {
+    public ResponseEntity<ArrayList<Board>> deleteBoard(@PathVariable Integer b_id) {
         //http://localhost:8080/example/board/1
 
         System.out.printf("deleteBoard Controller");
-        boardService.delete(b_id);
-
-        return true;
-        //return "redirect:/example/board"; // 이동할 URL  --> board.jsp
+        //List를 return
+        return ResponseEntity.ok(boardService.delete(b_id));
     }
 
-
-    @RequestMapping(value="/update/{b_id}", method=RequestMethod.GET)
-    public String updateBoardForm(@PathVariable Integer b_id, Model model) {
-        //http://localhost:8080/example/board/update/1
-
-        System.out.printf("updateform Controller");
-
-        Board board = boardService.get(b_id);
-
-        model.addAttribute("board", board);
-        return "updateBoard"; // 이동할 URL  --> updateBoard.jsp
-    }
-
-
-    @RequestMapping(value="/update/{b_id}", method=RequestMethod.PUT)
-    @ResponseBody
-    public int updateBoard(@PathVariable int b_id, @RequestBody Board board) {
+    @RequestMapping(value="/{b_id}", method=RequestMethod.PUT)
+    public ResponseEntity<Board> updateBoard(@PathVariable int b_id, @RequestBody Board board) {
         //http://localhost:8080/example/board/update/1
 
         System.out.printf("board controller update board");
 
-        boardService.updateBoard(board);
-
-        return b_id;
-
-        //return "redirect:/example/board/"+b_id; // 이동할 URL  --> boardList.jsp
-    }
-
-    @RequestMapping(value="/insert", method=RequestMethod.GET)
-    public String insertBoardForm() {
-        //http://localhost:8080/example/board/insert
-
-        System.out.printf("insertform Controller");
-
-        return "insertBoard"; // 이동할 URL  --> updateBoard.jsp
-    }
-
-    @RequestMapping(value="/insert", method=RequestMethod.POST)
-    public String insertBoard(@ModelAttribute Board board) {
-        //http://localhost:8080/example/board/insert
-
-        System.out.printf("insertform Controller");
-
-        boardService.insert(board);
-
-        return "redirect:/example/board"; // 이동할 URL  --> updateBoard.jsp
+        //Board를 return
+        return ResponseEntity.ok(boardService.updateBoard(b_id, board));
     }
 
 }

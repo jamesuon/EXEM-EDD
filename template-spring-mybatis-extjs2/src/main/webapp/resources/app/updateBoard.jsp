@@ -104,7 +104,6 @@ Hello! Welcome to Board.
     <h1><c:out value="${board.member_id}" /></h1><p/>
 
 <form name="updateForm" id="updateForm">
-    <%--<input name="_method" type="hidden" value="PUT"><p/>--%>
     <input type="text" value="${board.b_id}" name="b_id" /><p/>
     <input type="text" value="${board.b_name}" name="b_name" /><p/>
     <input type="hidden" value="<fmt:formatDate value="${board.c_date}" pattern="YYYY-MM-DD HH:mm:ss" /><" name="c_date" />

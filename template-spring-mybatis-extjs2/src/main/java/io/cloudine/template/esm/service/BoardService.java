@@ -36,10 +36,10 @@ public interface BoardService {
 
     boolean refresh(Board board);
 
-    void updateBoard(Board board);
+    Board updateBoard(int id, Board board);
 
-    void insert(Board board);
+    Board insert(Board board);
 
-    void delete(int id);
+    ArrayList<Board> delete(int id);
 }
 
